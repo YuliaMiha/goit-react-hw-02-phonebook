@@ -4,8 +4,6 @@ import ContactList from './components/ContactList/ContactList';
 import Filter from './components/Filter/Filter';
 
 
-const LOCAL_CONTACTS_KEY = 'contactsKey';
-
 export class App extends Component {
     state = {
        contacts: [
@@ -17,20 +15,6 @@ export class App extends Component {
         filter:'',
     }
 
-      componentDidMount() {
-    const savedContacts = JSON.parse(localStorage.getItem(LOCAL_CONTACTS_KEY));
-    if (savedContacts) {
-      this.setState({ contacts: savedContacts });
-    }
-  }
-  componentDidUpdate(_, prevState) {
-    if (prevState.contacts.length !== this.state.contacts.length) {
-      localStorage.setItem(
-        LOCAL_CONTACTS_KEY,
-        JSON.stringify(this.state.contacts)
-      );
-    }
-    }
     
     handleAddContact = (newContact) => {
         if (this.state.contacts.some((contact) => 

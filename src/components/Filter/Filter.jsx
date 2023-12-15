@@ -5,7 +5,7 @@ import css from './Filter.module.css';
 const Filter = ({filter, onChange}) => {
     return (
         <div className={css.filter}>
-            <label className={css.filter__label}> Find contacts by name    
+            <label className={css.filter__label}>Find contacts by name    
                 <input className={css.filter__input} name='filter' type='text' value={filter} onChange={onChange} placeholder="Filter contacts" />
             </label>
         </div>  
